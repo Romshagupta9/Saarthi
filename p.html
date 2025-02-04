@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources Page</title>
+    <link rel="stylesheet" href="p.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <nav style="display: flex; align-items: center; gap: 1.5rem;">
+                <a href="/" class="logo">Explore / FRAME</a>
+                <div class="nav-links">
+                    <a href="/home" class="nav-link">Home</a>
+                    <a href="/production" class="nav-link">Production</a>
+                    <a href="/resources" class="nav-link">Resources</a>
+                </div>
+            </nav>
+            <div class="profile-section">
+                <button id="connect-btn" class="connect-btn">Connect</button>
+                <img src="hello3.PNG" alt="Profile" class="profile-img">
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="content-grid">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h2 style="margin-bottom: 1rem; font-size: 1.25rem;" id="user-name">Guest</h2>
+                <a href="/resources" class="menu-item active">Resources</a>
+                <a href="/achievements" class="menu-item">Recent Achievements</a>
+                <a href="/ratings" class="menu-item">Average Rating</a>
+            </aside>
+
+            <!-- Main Content -->
+            <div>
+                <h1 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #000000;">Resources</h1>
+                <div id="resources-container">
+                    <!-- Resources will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>StartIN</h3>
+                <a href="#" class="footer-link">Help & Support</a>
+            </div>
+            <div class="footer-column">
+                <h3>Links</h3>
+                <a href="#" class="footer-link">Pricing</a>
+                <a href="#" class="footer-link">Features</a>
+                <a href="#" class="footer-link">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h3>Social</h3>
+                <a href="#" class="footer-link">Facebook</a>
+                <a href="#" class="footer-link">Instagram</a>
+                <a href="#" class="footer-link">LinkedIn</a>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Edit Profile -->
+     
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="edit-profile-modal">
+            <h2>Edit Profile</h2>
+            <form id="edit-profile-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email ID</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="update-btn">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Resource data
+        const resources = [
+            {
+                title: 'Sample Inc.',
+                rating: 5,
+                views: '8k',
+                comments: '3',
+                description: 'Sample description about the resource and what it provides. The work is done in good, and the people are amazing to work with.',
+                images: ['/placeholder.svg', '/placeholder.svg']
+            },
+            {
+                title: 'Tech & Co',
+                rating: 5,
+                views: '12k',
+                comments: '15',
+                description: 'Working with them is great. Following along with the projects we did was insightful as all.',
+                images: ['/placeholder.svg']
+            },
+            {
+                title: 'Design Work',
+                rating: 5,
+                views: '6k',
+                comments: '7',
+                description: 'Great UI/UX design work by the amazing team! Working closely with them and they have finished development as the world class standard.',
+                images: ['/placeholder.svg', '/placeholder.svg']
+            },
+            {
+                title: 'Mac Tech',
+                rating: 5,
+                views: '15k',
+                comments: '9',
+                description: 'What makes it a Mac business?',
+                images: ['/placeholder.svg']
+            }
+        ];
+
+        // Function to create star rating HTML
+        function createStarRating(rating) {
+            return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+        }
+
+        // Function to render resources
+        function renderResources() {
+            const container = document.getElementById('resources-container');
+            container.innerHTML = resources.map(resource => `
+                <div class="resource-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 style="font-size: 1.125rem; font-weight: 600; color: #000000;">${resource.title}</h3>
+                            <div class="star-rating">${createStarRating(resource.rating)}</div>
+                        </div>
+                        <div style="color: #91766F; font-size: 0.875rem;">
+                            <span>${resource.views} views</span>
+                            <span style="margin-left: 1rem;">${resource.comments} comments</span>
+                        </div>
+                    </div>
+                    <p style="color: #91766F; margin-bottom: 1rem;">${resource.description}</p>
+                    <div class="resource-images">
+                        ${resource.images.map(img => `
+                            <img src="${img}" alt="Resource" class="resource-image">
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Function to set the user's name
+        function setUserName() {
+            const userNameElement = document.getElementById('user-name');
+            const name = localStorage.getItem('userName') || "Guest"; // Fetch from local storage or default to "Guest"
+            userNameElement.textContent = name;
+        }
+
+        // Event listener for the Connect button
+        document.getElementById("connect-btn").addEventListener("click", function() {
+            const modalOverlay = document.getElementById("modal-overlay");
+            modalOverlay.style.display = "flex"; // Show the modal
+            const mainContainer = document.querySelector('.main-container');
+            // modalOverlay.style.display = "flex"; // Show the modal
+            mainContainer.classList.add('blurred'); // Add blurred class to the main content
+        });
+
+        // Event listener for the form submission
+        document.getElementById("edit-profile-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Profile updated successfully!");
+            const modalOverlay = document.getElementById("modal-overlay");
+            // modalOverlay.style.display = "none"; // Hide the modal after submission
+            const mainContainer = document.querySelector('.main-container');  // Target the main content area
+
+        modalOverlay.style.display = "none"; // Hide the modal
+        mainContainer.classList.remove('blurred'); // Remove the blur effect
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            renderResources();
+            setUserName(); // Set default name to "Guest" or fetch from a data source
+        });
+        document.getElementById("modal-overlay").addEventListener("click", function(event) {
+        if (event.target === this) {
+            const modalOverlay = document.getElementById("modal-overlay");
+            const mainContainer = document.querySelector('.main-container');  // Target the main content area
+
+            modalOverlay.style.display = "none"; // Hide the modal
+            mainContainer.classList.remove('blurred'); // Remove the blur effect
+        }
+        });
+    </script>
+</body>
+</html>
