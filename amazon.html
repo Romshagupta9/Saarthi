@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Interview Prep</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease-in-out;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            transition: all 0.4s ease-in-out;
+            font-size: 18px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .section:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+        }
+        h2 {
+            font-size: 36px;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 10px rgba(255, 235, 59, 0.6);
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            display: inline-block;
+        }
+        .parallax {
+            background: url('https://th.bing.com/th/id/OIP.XkcKROWEdqonIf2IonKNMAHaEK?w=293&h=180&c=7&r=0&o=5&pid=1.7') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            font-weight: 700;
+            color: #ffeb3b;
+            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.7);
+            position: relative;
+            animation: zoomEffect 10s infinite alternate ease-in-out;
+        }
+        .parallax::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .parallax > div {
+            z-index: 2;
+        }
+        @keyframes zoomEffect {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .section-content {
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4); 
+            border-radius: 10px;
+            color: #cc2424; 
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax">
+        <div>Amazon Interview Preparation</div>
+    </div>
+    <div class="container">
+        <h2>Aptitude Questions</h2>
+        <div class="section">
+            <div class="section-content">Q1: Find the product of first and last numbers in an arithmetic progression with mean 24 and common difference 4.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q2: A shopkeeper sold two items, one at 25% profit and another at 5% loss. Find overall profit/loss percentage.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q3: Probability of picking a multiple of 3 from numbers 1 to 250.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q4: Find the next number in the series: 8, 15, 12, 19, 16, 23.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q5: Find the width of the river using angle of depression values 30° and 45°.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q6: What day will you attend the interview if today is Sunday and the interview is 4 days after the day before yesterday?</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q7: How many pencils are in the box based on given statements?</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q8: How is a person in a photograph related to Kiran?</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q9: Solve the mislabeled fruit boxes puzzle.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q10: Find the missing letters in the series: bdf, hk, moq, ?</div>
+        </div>
+        
+        <h2>Coding Questions</h2>
+        <div class="section">
+            <div class="section-content">Q1: Check if two strings are rotations of each other.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q2: Determine if an alphanumeric string is a palindrome ignoring symbols and spaces.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q3: Compute the bottom view of a binary tree.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q4: Evaluate a given postfix expression.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q5: Find the longest path in a binary tree with the same node value.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q6: Find the maximum jumps required to reach the end of an array.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q7: Rotate elements of a necklace by k positions.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q8: Find if a pattern exists in a given string.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q9: Flatten a strange linked list into a normal one.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q10: Find all unique quadruples that sum to X using hashing.</div>
+        </div>
+
+        <h2>HR Interview Questions</h2>
+        <div class="section">
+            <div class="section-content">Q1: Can you tell me about yourself?</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q2: How do you handle conflict in the workplace?</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q3: How do you prioritize your workload?</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q4: How do you handle confidential information?</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q5: How do you stay updated with employment laws and regulations?</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q6: What makes you different from other candidates?</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q7: Share any latest achievement of Amazon.</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q8: Which Amazon leadership principle attracts you the most and why?</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q9: What makes you different from other candidates?</div>
+        </div>
+        <div class="section">
+            <div class="section-content">Q10: How do you fit into Amazon and this job role?</div>
+        </div>
+    </div>
+</body>
+</html>
