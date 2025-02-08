@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #8E8B63, #D6D4AD);
+            color: #333;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .profile-container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .profile-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #EDDADA;
+            cursor: pointer;
+        }
+        .profile-input, textarea, input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .tab-btn {
+            background: #CB8587;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .tab-btn:hover, .tab-btn.active {
+            background: #8E8B63;
+        }
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+        }
+        .tab-content:not(.hidden) {
+            display: block;
+        }
+        .save-btn {
+            background: #8E8B63;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        .save-btn:hover {
+            background: #CB8587;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-card">
+            <label for="profile-img-upload">
+                <img src="default-avatar.png" alt="User Profile" class="profile-img" id="profile-img">
+            </label>
+            <input type="file" id="profile-img-upload" accept="image/*" hidden>
+            <input type="text" id="user-name" placeholder="Enter your name" class="profile-input">
+            <textarea id="user-bio" placeholder="Enter your bio"></textarea>
+            <div class="social-links">
+                <input type="text" id="linkedin" placeholder="LinkedIn Profile">
+                <input type="text" id="twitter" placeholder="Twitter Profile">
+                <input type="email" id="email" placeholder="Email Address">
+            </div>
+        </div>
+        <div class="profile-content">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showTab('overview', event)">Overview</button>
+                <button class="tab-btn" onclick="showTab('skills', event)">Skills</button>
+                <button class="tab-btn" onclick="showTab('projects', event)">Projects</button>
+                <button class="tab-btn" onclick="showTab('achievements', event)">Achievements</button>
+            </div>
+            <div class="tab-content" id="overview">
+                <h3>Current Page: Overview</h3>
+                <p>Enter details about yourself.</p>
+            </div>
+            <div class="tab-content hidden" id="skills">
+                <h3>Skills</h3>
+                <textarea id="user-skills" placeholder="List your skills"></textarea>
+            </div>
+            <div class="tab-content hidden" id="projects">
+                <h3>Projects</h3>
+                <textarea id="user-projects" placeholder="Describe your projects"></textarea>
+            </div>
+            <div class="tab-content hidden" id="achievements">
+                <h3>Achievements</h3>
+                <textarea id="user-achievements" placeholder="List your achievements"></textarea>
+            </div>
+        </div>
+        <button class="save-btn" onclick="saveProfile()">Save Profile</button>
+    </div>
+    <script>
+        function showTab(tabId, event) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+            event.target.classList.add('active');
+        }
+        document.getElementById('profile-img-upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-img').src = e.target.result;
+                    localStorage.setItem('profileImg', e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        function saveProfile() {
+            const profileData = {
+                name: document.getElementById('user-name').value,
+                bio: document.getElementById('user-bio').value,
+                linkedin: document.getElementById('linkedin').value,
+                twitter: document.getElementById('twitter').value,
+                email: document.getElementById('email').value,
+                skills: document.getElementById('user-skills').value,
+                projects: document.getElementById('user-projects').value,
+                achievements: document.getElementById('user-achievements').value
+            };
+            localStorage.setItem('profileData', JSON.stringify(profileData));
+            window.location.href = 'profilepage.html';
+        }
+    </script>
+</body>
+</html>

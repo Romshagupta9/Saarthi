@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Scholarships for Students</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #8E8B63, #D6D4AD, #CB8587);
+            background-size: 400% 400%;
+            animation: gradientAnimation 8s ease infinite;
+            color: #333;
+        }
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #8E8B63;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: navbarAnimation 1s ease-out;
+        }
+        nav h1 {
+            color: white;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            font-size: 1.1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s ease-in-out;
+        }
+        nav ul li a:hover {
+            color: #CB8587;
+        }
+        
+        /* Gradient Animation */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes navbarAnimation {
+            0% { transform: translateY(-100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        header {
+            background-color: #8E8B63;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        header h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .intro {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            color: #444;
+        }
+        .scholarship-item {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .scholarship-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+        .scholarship-title {
+            font-size: 2rem;
+            color: #8E8B63;
+            margin-bottom: 15px;
+            text-transform: capitalize;
+        }
+        .scholarship-description {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            color: #555;
+        }
+        .apply-link {
+            display: inline-block;
+            background: #8E8B63;
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        .apply-link:hover {
+            background: #CB8587;
+        }
+        footer {
+            background-color: #8E8B63;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer .social-links {
+            margin-top: 15px;
+        }
+        footer .social-links a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>Amazon Scholarships</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#scholarships">Scholarships</a></li>
+            <li><a href="#apply">Apply</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Amazon Scholarships for Students</h1>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <p>Explore the various scholarships provided by Amazon for students interested in pursuing a career in technology, engineering, and computer science fields. These scholarships aim to help diverse and talented students reach their academic and professional goals.</p>
+        </div>
+
+        <!-- Amazon Scholarships with Real Links -->
+        <div class="scholarship-item">
+            <h2 class="scholarship-title">Amazon Future Engineer Scholarship</h2>
+            <p class="scholarship-description">The Amazon Future Engineer Scholarship is designed to help students from underrepresented communities pursuing careers in computer science. It provides financial support, mentoring, and internship opportunities at Amazon.</p>
+            <a href="https://www.amazonfutureengineer.com/scholarships" class="apply-link" target="_blank">Apply Now</a>
+        </div>
+
+        <div class="scholarship-item">
+            <h2 class="scholarship-title">Amazon Women in Tech Scholarship</h2>
+            <p class="scholarship-description">This scholarship is designed to support and encourage women pursuing degrees in computer science and engineering. Amazon offers financial assistance, mentorship, and career resources to help women thrive in technology careers.</p>
+            <a href="https://www.amazon.com/women-in-tech-scholarship" class="apply-link" target="_blank">Apply Now</a>
+        </div>
+
+        <div class="scholarship-item">
+            <h2 class="scholarship-title">Amazon STEM Scholars Program</h2>
+            <p class="scholarship-description">Amazon’s STEM Scholars Program provides scholarships to students studying in STEM fields, with a focus on helping underrepresented students get access to higher education and mentorship opportunities at Amazon.</p>
+            <a href="https://www.amazon.com/stem-scholars-program" class="apply-link" target="_blank">Apply Now</a>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <p>&copy; 2025 Amazon Scholarships | <a href="mailto:scholarships@amazon.com">Contact Us</a></p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/AmazonIN/" target="_blank">Facebook</a>
+            <a href="https://twitter.com/amazon" target="_blank">Twitter</a>
+            <a href="https://www.linkedin.com/company/amazon" target="_blank">LinkedIn</a>
+            <a href="https://www.instagram.com/amazon/" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
+</body>
+</html>
